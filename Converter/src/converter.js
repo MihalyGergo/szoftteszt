@@ -9,14 +9,15 @@ function Converter(num){
         return "NAN";
     }
 
-    const values = [1, 5, 10, 50, 100, 500, 1000];
-    const symbols = ["I", "V", "X", "L", "C", "D", "M"];
+    const values = [1000, 500, 100, 50, 10, 5, 1];
+    const symbols = ["M", "D", "C", "L", "X", "V", "I"]
 
     let result = "";
 
     for(let i = 0; i < values.length; i++){
-        if(num == values[i]){
+        while(num >= values[i]){
             result += symbols[i];
+            num -= values[i];
         }
     }
     return result;
