@@ -1,0 +1,1 @@
+Tesztek futtatása: parancssorból npm-el: npm test
