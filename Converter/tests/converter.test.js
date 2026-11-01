@@ -27,4 +27,12 @@ QUnit.module("Converter tests", function() {
         assert.equal(Converter(830), "DCCCXXX");
         assert.equal(Converter(3371), "MMMCCCLXXI");
     });
+    QUnit.test("Full compound values", function(assert){
+        assert.equal(Converter(4), "IV");
+        assert.equal(Converter(9), "IX");
+        assert.equal(Converter(14), "XIV");
+        assert.equal(Converter(94), "XCIV");
+        assert.equal(Converter(1994), "MCMXCIV");
+        assert.equal(Converter(3999), "MMMCMXCIX");
+    });
 });
