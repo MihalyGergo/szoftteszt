@@ -5,6 +5,9 @@ function Converter(num){
     if(num <= 0){
         return "NAN";
     }
+    if(num >= 4000){
+        return "NAN"
+    }
     return 0;
 }
 
