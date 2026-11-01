@@ -1,6 +1,7 @@
 package model;
 
 public class BankAccount {
+	private String curr = "HUF"; 
 	private double balance = 0;
 	
 	public void deposit(double amount) throws IllegalArgumentException{
@@ -20,11 +21,15 @@ public class BankAccount {
 		balance -= amount;
 	}
 	
+	private boolean isValidAmount(double amount) {
+		return (amount > 0);
+	}
+	
 	public double getBalance() {
 		return balance;
 	}
 	
-	private boolean isValidAmount(double amount) {
-		return (amount > 0);
+	public String getCurr() {
+		return curr;
 	}
 }

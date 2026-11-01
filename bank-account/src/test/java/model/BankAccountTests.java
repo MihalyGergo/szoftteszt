@@ -13,7 +13,7 @@ public class BankAccountTests {
 		account = new BankAccount();
 	}
 	
-	<T extends Throwable> T assertThrowsWithoutChange(Class<T> exception, Executable executable) {
+	public static <T extends Throwable> T assertThrowsWithoutChange(Class<T> exception, Executable executable, BankAccount account) {
 		double balanceBefore = account.getBalance();
 		T ex = assertThrows(exception, executable);
 		assertEquals(balanceBefore, account.getBalance());
@@ -47,14 +47,14 @@ public class BankAccountTests {
 	void deposit_DepositNegative() {
 		double amount = 497;
 		account.deposit(amount);
-		assertThrowsWithoutChange(IllegalArgumentException.class, () -> account.deposit(-1));
+		assertThrowsWithoutChange(IllegalArgumentException.class, () -> account.deposit(-1), account);
 	}
 	
 	@Test
 	void deposit_DepositZero() {
 		double amount = 8743948;
 		account.deposit(amount);
-		assertThrowsWithoutChange(IllegalArgumentException.class, () -> account.deposit(0));
+		assertThrowsWithoutChange(IllegalArgumentException.class, () -> account.deposit(0), account);
 	}
 	
 	@Test
@@ -78,21 +78,21 @@ public class BankAccountTests {
 	void withdraw_WithdrawMoreThenBalance() {
 		double amount = 9573;
 		account.deposit(amount);
-		assertThrowsWithoutChange(IllegalArgumentException.class, () -> account.withdraw(amount + 726));
+		assertThrowsWithoutChange(IllegalArgumentException.class, () -> account.withdraw(amount + 726), account);
 	}
 	
 	@Test
 	void withdraw_WithdrawNegative() {
 		double amount = 8274;
 		account.deposit(amount);
-		assertThrowsWithoutChange(IllegalArgumentException.class, () -> account.withdraw(-1));
+		assertThrowsWithoutChange(IllegalArgumentException.class, () -> account.withdraw(-1), account);
 	}
 	
 	@Test
 	void withdraw_WithdrawZero() {
 		double amount = 51623;
 		account.deposit(amount);
-		assertThrowsWithoutChange(IllegalArgumentException.class, () -> account.withdraw(0));
+		assertThrowsWithoutChange(IllegalArgumentException.class, () -> account.withdraw(0), account);
 	}
 	
 	
