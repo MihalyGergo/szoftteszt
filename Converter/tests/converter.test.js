@@ -18,4 +18,13 @@ QUnit.module("Converter tests", function() {
         assert.equal(Converter(500), "D");
         assert.equal(Converter(1000), "M");
     });
+    QUnit.test("Basic compound values", function(assert){
+        assert.equal(Converter(3), "III");
+        assert.equal(Converter(7), "VII");
+        assert.equal(Converter(32), "XXXII");
+        assert.equal(Converter(63), "LXIII");
+        assert.equal(Converter(122), "CXXII");
+        assert.equal(Converter(830), "DCCCXXX");
+        assert.equal(Converter(3371), "MMMCCCLXXI");
+    });
 });
