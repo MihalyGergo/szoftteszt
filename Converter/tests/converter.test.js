@@ -7,5 +7,6 @@ QUnit.module("Converter tests", function() {
         assert.equal(Converter(-12), "NAN");
         assert.equal(Converter(0), "NAN");
         assert.equal(Converter(23.92), "NAN");
+        assert.equal(Converter(4000), "NAN");
     });
 });
